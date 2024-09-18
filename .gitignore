@@ -1,4 +1,6 @@
 bin/
 obj/
+bin/Debug
+obj/Debug
 .vscode/
 .DS_Store/

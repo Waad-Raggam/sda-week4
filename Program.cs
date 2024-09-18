@@ -20,4 +20,10 @@ app.MapPost("", () => {
     return "This is from post method";
 });
 
+// method: PUT
+// endpoint: http://localhost:5212/
+app.MapPut("", () => {
+    return "This is from put method";
+});
+
 app.Run();
