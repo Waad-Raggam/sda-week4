@@ -26,4 +26,10 @@ app.MapPut("", () => {
     return "This is from put method";
 });
 
+// method: DELETE
+// endpoint: http://localhost:5212/
+app.MapDelete("", () => {
+    return "This is from delete method";
+});
+
 app.Run();

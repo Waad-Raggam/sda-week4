@@ -2,5 +2,7 @@ bin/
 obj/
 bin/Debug
 obj/Debug
+bin/net8.0
+obj/net8.0
 .vscode/
 .DS_Store/
