@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\waadr\\ecommerce\\ecommerce.csproj": {}
+    "C:\\Users\\waadr\\Documents\\GitHub\\New folder\\sda-week4\\ecommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\waadr\\ecommerce\\ecommerce.csproj": {
+    "C:\\Users\\waadr\\Documents\\GitHub\\New folder\\sda-week4\\ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\waadr\\ecommerce\\ecommerce.csproj",
+        "projectUniqueName": "C:\\Users\\waadr\\Documents\\GitHub\\New folder\\sda-week4\\ecommerce.csproj",
         "projectName": "ecommerce",
-        "projectPath": "C:\\Users\\waadr\\ecommerce\\ecommerce.csproj",
+        "projectPath": "C:\\Users\\waadr\\Documents\\GitHub\\New folder\\sda-week4\\ecommerce.csproj",
         "packagesPath": "C:\\Users\\waadr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\waadr\\ecommerce\\obj\\",
+        "outputPath": "C:\\Users\\waadr\\Documents\\GitHub\\New folder\\sda-week4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\waadr\\AppData\\Roaming\\NuGet\\NuGet.Config"

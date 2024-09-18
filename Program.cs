@@ -14,4 +14,10 @@ app.MapGet("/greeting", () =>{
     return "Hello, World from greeting";
 });
 
+// method: POST
+// endpoint: http://localhost:5212/
+app.MapPost("", () => {
+    return "This is from post method";
+});
+
 app.Run();
