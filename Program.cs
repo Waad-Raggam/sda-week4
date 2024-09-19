@@ -45,4 +45,11 @@ List<Product> products = new List<Product>
     new Product {Id = 3, Name = "Tablet"},
 };
 
+// get return list of products
+// method: get
+// endpoint: http://localhost:5212/products
+app.MapGet("/products", () =>{
+    return Results.Ok(products);
+});
+
 app.Run();
