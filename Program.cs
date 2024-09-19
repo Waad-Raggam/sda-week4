@@ -47,14 +47,20 @@ List<Product> products = new List<Product>
 
 // get return list of products
 // method: get
-// endpoint: http://localhost:5212/products
+// endpoint: http://localhost:5212/api/v1/products
 // v1: backend returns list of products
 // best practice: api/v1/products => add versioning
-app.MapGet("/v1/products", () =>{
+app.MapGet("/api/v1/products", () =>{
     return Results.Ok(products);
 });
 
-//
-// method: 
+// Create new product
+// method: POST
+// endpoint: http://localhost:5212/api/v1/products
+app.MapPost("/api/v1/products", (Product newProduct) =>{
+    products.Add(newProduct);
+    // list has 4 items now
+    return Results.Ok(products);
+});
 
 app.Run();
