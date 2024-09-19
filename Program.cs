@@ -60,7 +60,8 @@ app.MapGet("/api/v1/products", () =>{
 app.MapPost("/api/v1/products", (Product newProduct) =>{
     products.Add(newProduct);
     // list has 4 items now
-    return Results.Ok(products);
+    // return Results.Ok(products);
+    return Results.Created("New Product", newProduct);
 });
 
 app.Run();
