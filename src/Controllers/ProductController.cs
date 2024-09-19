@@ -14,5 +14,14 @@ namespace ecommerce
             new Product {Id = 2, Name = "Smartphone"},
             new Product {Id = 3, Name = "Tablet"},
         };
+
+        // ActionResult class: return status of http method
+        // method: GET
+        [HttpGet]
+        public ActionResult GetProducts()
+        {
+            return Ok(products);
+        }
+
     }
 }
