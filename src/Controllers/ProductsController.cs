@@ -35,6 +35,7 @@ namespace ecommerce
         }
 
         // GET: get product by id
+        // endpoint: api/v1/Products/{id}
         [HttpGet("{id}")]
         public ActionResult GetProductById(int id)
         {
@@ -47,7 +48,6 @@ namespace ecommerce
             }
             else
             {
-                // foundProduct.Name = updatedProduct.Name;
                 return Ok(foundProduct);
             }
             return Ok(products);
