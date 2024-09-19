@@ -71,13 +71,33 @@ app.MapPost("/api/v1/products", (Product newProduct) =>
     return Results.Created("New Product", newProduct);
 });
 
+// update product 1, change the name from "Laptop" to "TV"
+// method: PUT
+// endpoint: http://localhost:5212/api/v1/products
+// put method requires you to add all fields even unchanged ones (unlike patch)
+app.MapPut("/api/v1/products/{id}", (int id, Product updatedProduct) =>
+{
+    // step 1: find the product by id
+    Product? foundProduct = products.FirstOrDefault(p => p.Id == id);
+    // step 2: if product not found
+    if (foundProduct == null)
+    {
+        return Results.NotFound();
+    }
+    else
+    {
+        foundProduct.Name = updatedProduct.Name;
+        return Results.Ok(foundProduct);
+    }
+});
 
 // method: DELETE
 // endpoint: http://localhost:5212/api/v1/products
 app.MapDelete("/api/v1/products/{id}", (int id) =>
 {
     // step 1: find the product
-    var foundProduct = products.FirstOrDefault(p => p.Id == id);
+    // FirstOrDefault() returns first item that matches the condition
+    Product? foundProduct = products.FirstOrDefault(p => p.Id == id);
     // step 2: if product not found
     if (foundProduct == null)
     {
