@@ -7,7 +7,7 @@ namespace ecommerce
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    // base endpoint: api/v1/Products
+    // endpoint: api/v1/Products
     public class ProductsController : ControllerBase
     {
 
@@ -28,11 +28,29 @@ namespace ecommerce
 
             // Construct the full route based on the Route attribute and controller name
             string fullRoute = $"api/v1/{controllerName}";
-            
+
             // Print to the console
             Console.WriteLine($"Route to {fullRoute}");
             return Ok(products);
         }
 
+        // GET: get product by id
+        [HttpGet("{id}")]
+        public ActionResult GetProductById(int id)
+        {
+            // step 1: find the product by id
+            Product? foundProduct = products.FirstOrDefault(p => p.Id == id);
+            // step 2: if product not found
+            if (foundProduct == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                // foundProduct.Name = updatedProduct.Name;
+                return Ok(foundProduct);
+            }
+            return Ok(products);
+        }
     }
 }
