@@ -1,3 +1,6 @@
+using System.Net.Http.Headers;
+using ecommerce;
+
 var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
@@ -31,5 +34,13 @@ app.MapPut("", () => {
 app.MapDelete("", () => {
     return "This is from delete method";
 });
+
+// Product
+// in memory database product list
+
+List<Product> products = new List<Product>
+{
+
+}
 
 app.Run();
