@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 // endpoint: http://localhost:5212
 app.MapGet("", () =>{
-    return "Hello, World";
+    return Results.Ok("Hello, World");
 });
 
 // endpoints
