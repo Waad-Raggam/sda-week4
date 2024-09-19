@@ -40,7 +40,9 @@ app.MapDelete("", () => {
 
 List<Product> products = new List<Product>
 {
-
-}
+    new Product {Id = 1, Name = "Laptop"},
+    new Product {Id = 2, Name = "Smartphone"},
+    new Product {Id = 3, Name = "Tablet"},
+};
 
 app.Run();
