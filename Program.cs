@@ -48,8 +48,13 @@ List<Product> products = new List<Product>
 // get return list of products
 // method: get
 // endpoint: http://localhost:5212/products
-app.MapGet("/products", () =>{
+// v1: backend returns list of products
+// best practice: api/v1/products => add versioning
+app.MapGet("/v1/products", () =>{
     return Results.Ok(products);
 });
+
+//
+// method: 
 
 app.Run();
