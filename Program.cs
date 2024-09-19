@@ -6,8 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
 
 var app = builder.Build();
+
+app.MapControllers();
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
@@ -61,15 +64,15 @@ List<Product> products = new List<Product>
     new Product {Id = 3, Name = "Tablet"},
 };
 
-// get return list of products
-// method: get
-// endpoint: http://localhost:5212/api/v1/products
-// v1: backend returns list of products
-// best practice: api/v1/products => add versioning
-app.MapGet("/api/v1/products", () =>
-{
-    return Results.Ok(products);
-});
+// // get return list of products
+// // method: get
+// // endpoint: http://localhost:5212/api/v1/products
+// // v1: backend returns list of products
+// // best practice: api/v1/products => add versioning
+// app.MapGet("/api/v1/products", () =>
+// {
+//     return Results.Ok(products);
+// });
 
 // Create new product
 // method: POST
