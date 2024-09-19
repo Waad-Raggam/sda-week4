@@ -5,7 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 // endpoint: http://localhost:5212
-app.MapGet("", () =>{
+app.MapGet("", () =>
+{
     return Results.Ok("Hello, World");
 });
 
@@ -13,25 +14,29 @@ app.MapGet("", () =>{
 
 // method: Get
 // endpoint: http://localhost:5212/greeting
-app.MapGet("/greeting", () =>{
+app.MapGet("/greeting", () =>
+{
     return "Hello, World from greeting";
 });
 
 // method: POST
 // endpoint: http://localhost:5212/
-app.MapPost("", () => {
+app.MapPost("", () =>
+{
     return "This is from post method";
 });
 
 // method: PUT
 // endpoint: http://localhost:5212/
-app.MapPut("", () => {
+app.MapPut("", () =>
+{
     return "This is from put method";
 });
 
 // method: DELETE
 // endpoint: http://localhost:5212/
-app.MapDelete("", () => {
+app.MapDelete("", () =>
+{
     return "This is from delete method";
 });
 
@@ -50,18 +55,40 @@ List<Product> products = new List<Product>
 // endpoint: http://localhost:5212/api/v1/products
 // v1: backend returns list of products
 // best practice: api/v1/products => add versioning
-app.MapGet("/api/v1/products", () =>{
+app.MapGet("/api/v1/products", () =>
+{
     return Results.Ok(products);
 });
 
 // Create new product
 // method: POST
 // endpoint: http://localhost:5212/api/v1/products
-app.MapPost("/api/v1/products", (Product newProduct) =>{
+app.MapPost("/api/v1/products", (Product newProduct) =>
+{
     products.Add(newProduct);
     // list has 4 items now
     // return Results.Ok(products);
     return Results.Created("New Product", newProduct);
+});
+
+
+// method: DELETE
+// endpoint: http://localhost:5212/api/v1/products
+app.MapDelete("/api/v1/products/{id}", (int id) =>
+{
+    // step 1: find the product
+    var foundProduct = products.FirstOrDefault(p => p.Id == id);
+    // step 2: if product not found
+    if (foundProduct == null)
+    {
+        return Results.NotFound();
+    }
+    else
+    {
+        // step 3: remove product if found
+        products.Remove(foundProduct);
+        return Results.NoContent();
+    }
 });
 
 app.Run();
