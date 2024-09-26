@@ -1,5 +1,6 @@
 using System.Net.Http.Headers;
 using ecommerce;
+using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Connect db
 var dataSourceBuilder = new NpgsqlDataSourceBuilder(builder.Configuration.GetConnectionString("Local"));
 
+// step 2 
+builder.Services.AddDbContext<DatabaseContext>(options =>
+{
+    options.UseNpgsql(dataSourceBuilder.Build());
+}
+);
 // Add services to the container
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
