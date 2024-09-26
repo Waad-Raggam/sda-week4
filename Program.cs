@@ -1,6 +1,8 @@
 using System.Net.Http.Headers;
 using ecommerce;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Writers;
 using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +22,23 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 var app = builder.Build();
-
+// test if db is connected
+using(var scope = app.Services.CreateScope()){
+    var dbContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
+    try
+    {
+        // Check if app can connect to db
+        if (dbContext.Database.CanConnect()){
+            Console.WriteLine("caaaan");
+        } else{
+            Console.WriteLine("caaaannnoot");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("exception  at "+ex.Message);        
+    }
+}
 app.MapControllers();
 
 // Configure the HTTP request pipeline
