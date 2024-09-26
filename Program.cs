@@ -1,7 +1,11 @@
 using System.Net.Http.Headers;
 using ecommerce;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Connect db
+var dataSourceBuilder = new NpgsqlDataSourceBuilder(builder.Configuration.GetConnectionString("Local"));
 
 // Add services to the container
 builder.Services.AddEndpointsApiExplorer();
